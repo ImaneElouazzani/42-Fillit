@@ -6,12 +6,11 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 18:58:32 by mobounya          #+#    #+#             */
-/*   Updated: 2019/07/20 19:50:22 by mobounya         ###   ########.fr       */
+/*   Updated: 2019/07/21 18:15:01 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <unistd.h>
 
 int		main(int argc, char **argv)
 {
@@ -29,7 +28,7 @@ int		main(int argc, char **argv)
 	head = malloc(sizeof(t_tetris));
 	if (!(ft_readtetris(fd, head, num_of_tetris)) || num_of_tetris[0] >= 26)
 	{
-		ft_putendl("Error");
+		ft_putendl("error");
 		ft_freelst(head);
 		return (0);
 	}

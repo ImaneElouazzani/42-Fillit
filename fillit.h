@@ -6,17 +6,15 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 19:02:18 by mobounya          #+#    #+#             */
-/*   Updated: 2019/07/20 20:10:21 by mobounya         ###   ########.fr       */
+/*   Updated: 2019/07/21 17:32:08 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
 
-# include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
-# include <stdio.h>
 # define TETRIS_SIZE 20
 # include "libft.h"
 

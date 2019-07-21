@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 12:18:55 by mobounya          #+#    #+#             */
-/*   Updated: 2019/07/20 18:48:20 by mobounya         ###   ########.fr       */
+/*   Updated: 2019/07/21 13:29:33 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,16 +59,4 @@ int		ft_init_size(int num_of_tetris)
 	while (i * i < num)
 		i++;
 	return (--i);
-}
-
-void	ft_print_tetris(t_tetris *tetro)
-{
-	t_tetris *head;
-
-	head = tetro;
-	while (head)
-	{
-		printf("Letter : %c\n", head->letter);
-		head = head->next;
-	}
 }
