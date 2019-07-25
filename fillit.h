@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 19:02:18 by mobounya          #+#    #+#             */
-/*   Updated: 2019/07/21 17:32:08 by mobounya         ###   ########.fr       */
+/*   Updated: 2019/07/25 21:05:28 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # define TETRIS_SIZE 20
-# include "libft.h"
+# include "./libft/libft.h"
 
 typedef struct	s_fillit
 {
@@ -54,5 +54,5 @@ void			ft_print_tetris(t_tetris *tetro);
 void			ft_freedouble(char **pointer);
 int				ft_check_format(char *str, t_tetris *head,\
 				char letter, int *num_tetris);
-void			ft_solveit(t_fillit *fillit, int *num, t_tetris *head);
+void			ft_solveit(int *num, t_tetris *head, int fd);
 #endif

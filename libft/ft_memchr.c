@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printtab.c                                      :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mobounya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/12 21:27:32 by mobounya          #+#    #+#             */
-/*   Updated: 2019/07/25 19:30:05 by mobounya         ###   ########.fr       */
+/*   Created: 2019/03/30 20:30:13 by mobounya          #+#    #+#             */
+/*   Updated: 2019/04/04 07:16:18 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-void	ft_printtab(char **tetris)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int		i;
-	int		j;
+	size_t			i;
+	unsigned char	j;
 
-	j = 0;
-	while (tetris[j])
+	i = 0;
+	j = c;
+	while (i < n)
 	{
-		i = 0;
-		while (tetris[j][i])
-		{
-			ft_putchar(tetris[j][i]);
-			i++;
-		}
-		ft_putchar('\n');
-		j++;
+		if (*(unsigned char *)s == j)
+			return ((unsigned char*)s);
+		i++;
+		s++;
 	}
+	return (NULL);
 }

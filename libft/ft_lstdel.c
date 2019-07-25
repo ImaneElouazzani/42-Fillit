@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printtab.c                                      :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mobounya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/12 21:27:32 by mobounya          #+#    #+#             */
-/*   Updated: 2019/07/25 19:30:05 by mobounya         ###   ########.fr       */
+/*   Created: 2019/04/08 23:43:08 by mobounya          #+#    #+#             */
+/*   Updated: 2019/04/08 23:43:45 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-void	ft_printtab(char **tetris)
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	int		i;
-	int		j;
+	t_list *list;
 
-	j = 0;
-	while (tetris[j])
+	while (*alst != NULL)
 	{
-		i = 0;
-		while (tetris[j][i])
-		{
-			ft_putchar(tetris[j][i]);
-			i++;
-		}
-		ft_putchar('\n');
-		j++;
+		list = (*alst);
+		ft_lstdelone(alst, del);
+		*alst = list->next;
 	}
 }

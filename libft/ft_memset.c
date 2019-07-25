@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printtab.c                                      :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mobounya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/12 21:27:32 by mobounya          #+#    #+#             */
-/*   Updated: 2019/07/25 19:30:05 by mobounya         ###   ########.fr       */
+/*   Created: 2019/03/26 15:28:56 by mobounya          #+#    #+#             */
+/*   Updated: 2019/03/26 20:22:03 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-void	ft_printtab(char **tetris)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	int		i;
-	int		j;
+	size_t i;
 
-	j = 0;
-	while (tetris[j])
+	i = 0;
+	while (i < len)
 	{
-		i = 0;
-		while (tetris[j][i])
-		{
-			ft_putchar(tetris[j][i]);
-			i++;
-		}
-		ft_putchar('\n');
-		j++;
+		((unsigned char*)b)[i] = c;
+		i++;
 	}
+	return (b);
 }

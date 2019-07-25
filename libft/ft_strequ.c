@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printtab.c                                      :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mobounya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/12 21:27:32 by mobounya          #+#    #+#             */
-/*   Updated: 2019/07/25 19:30:05 by mobounya         ###   ########.fr       */
+/*   Created: 2019/04/04 07:09:08 by mobounya          #+#    #+#             */
+/*   Updated: 2019/04/11 00:13:52 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-void	ft_printtab(char **tetris)
+int		ft_strequ(char const *s1, char const *s2)
 {
-	int		i;
-	int		j;
+	int i;
 
-	j = 0;
-	while (tetris[j])
+	i = 0;
+	if (s1 == NULL || s2 == NULL)
+		return (0);
+	while (s1[i] && s2[i])
 	{
-		i = 0;
-		while (tetris[j][i])
-		{
-			ft_putchar(tetris[j][i]);
-			i++;
-		}
-		ft_putchar('\n');
-		j++;
+		if (s1[i] != s2[i])
+			return (0);
+		i++;
 	}
+	return (s1[i] == s2[i]);
 }

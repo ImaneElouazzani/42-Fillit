@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 12:18:55 by mobounya          #+#    #+#             */
-/*   Updated: 2019/07/21 13:29:33 by mobounya         ###   ########.fr       */
+/*   Updated: 2019/07/25 20:52:52 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,19 @@ void	ft_gentab(t_fillit *fillit, int size)
 	i = 0;
 	if (fillit->starting_tab)
 		ft_freedouble(fillit->starting_tab);
-	fillit->starting_tab = (char **)malloc(sizeof(char *) * (size + 1));
+	if ((fillit->starting_tab =\
+	(char **)malloc(sizeof(char *) * (size + 1))) == NULL)
+		return ;
 	while (i < size)
 	{
 		j = 0;
-		fillit->starting_tab[i] = ft_strnew(size + 1);
+		fillit->starting_tab[i] = malloc(sizeof(char *) * size + 1);
 		while (j < size)
 		{
 			fillit->starting_tab[i][j] = '.';
 			j++;
 		}
+		fillit->starting_tab[i][j] = '\0';
 		i++;
 	}
 	fillit->starting_tab[i] = NULL;
@@ -58,5 +61,5 @@ int		ft_init_size(int num_of_tetris)
 	i = 1;
 	while (i * i < num)
 		i++;
-	return (--i);
+	return (i);
 }

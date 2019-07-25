@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 12:14:55 by mobounya          #+#    #+#             */
-/*   Updated: 2019/07/21 13:33:33 by mobounya         ###   ########.fr       */
+/*   Updated: 2019/07/25 19:47:29 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,6 @@ int		ft_check_format(char *str, t_tetris *head, char letter, int *num_tetris)
 		return (0);
 	ft_getcord(str, head);
 	head->letter = letter;
-	num_tetris[0]++;
+	*num_tetris = *num_tetris + 1;
 	return (1);
 }

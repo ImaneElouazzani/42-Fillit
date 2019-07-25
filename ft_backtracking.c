@@ -6,11 +6,13 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 20:40:39 by mobounya          #+#    #+#             */
-/*   Updated: 2019/07/20 20:00:08 by mobounya         ###   ########.fr       */
+/*   Updated: 2019/07/25 20:43:34 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+#	define CAL_PNT(j) (j + tetrimino->cords[cord_index].y)
+#	define CAL_IND(i) (i + tetrimino->cords[cord_index].x)
 
 void	ft_getcord(char *str, t_tetris *list)
 {
@@ -20,7 +22,8 @@ void	ft_getcord(char *str, t_tetris *list)
 
 	i = 0;
 	j = 0;
-	list->cords = malloc(sizeof(t_cord) * 4);
+	if ((list->cords = malloc(sizeof(t_cord) * 4)) == NULL)
+		return ;
 	while (j < 4)
 	{
 		if (str[i] == '#')
@@ -45,12 +48,12 @@ int		ft_place_tetri(t_tetris *tetrimino, t_fillit *fillit, int j, int i)
 	cord_index = 0;
 	while (cord_index < 4)
 	{
-		if (!fillit->starting_tab[j + tetrimino->cords[cord_index].y]\
-		|| !fillit->starting_tab[j + tetrimino->cords[cord_index].y]\
-		[i + tetrimino->cords[cord_index].x])
+		if (CAL_PNT(j) < 0 || CAL_IND(i) < 0)
 			return (0);
-		if (fillit->starting_tab[j + tetrimino->cords[cord_index].y]\
-		[i + tetrimino->cords[cord_index].x] == '.')
+		if (!fillit->starting_tab[CAL_PNT(j)] ||\
+		!fillit->starting_tab[CAL_PNT(j)][CAL_IND(i)])
+			return (0);
+		if (fillit->starting_tab[CAL_PNT(j)][CAL_IND(i)] == '.')
 			cord_index++;
 		else
 			return (0);
@@ -58,22 +61,20 @@ int		ft_place_tetri(t_tetris *tetrimino, t_fillit *fillit, int j, int i)
 	cord_index = 0;
 	while (cord_index < 4)
 	{
-		fillit->starting_tab[j + tetrimino->cords[cord_index].y]\
-		[i + tetrimino->cords[cord_index].x] = tetrimino->letter;
+		fillit->starting_tab[CAL_PNT(j)][CAL_IND(i)] = tetrimino->letter;
 		cord_index++;
 	}
 	return (1);
 }
 
-void	ft_unplace_tetri(t_tetris *terimino, char **starting_tab, int j, int i)
+void	ft_unplace_tetri(t_tetris *tetrimino, char **starting_tab, int j, int i)
 {
 	int		cord_index;
 
 	cord_index = 0;
 	while (cord_index < 4)
 	{
-		starting_tab[j + terimino->cords[cord_index].y]\
-		[i + terimino->cords[cord_index].x] = '.';
+		starting_tab[CAL_PNT(j)][CAL_IND(i)] = '.';
 		cord_index++;
 	}
 }

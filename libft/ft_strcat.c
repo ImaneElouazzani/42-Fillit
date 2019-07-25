@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printtab.c                                      :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mobounya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/12 21:27:32 by mobounya          #+#    #+#             */
-/*   Updated: 2019/07/25 19:30:05 by mobounya         ###   ########.fr       */
+/*   Created: 2019/03/28 19:32:37 by mobounya          #+#    #+#             */
+/*   Updated: 2019/03/29 18:43:47 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-
-void	ft_printtab(char **tetris)
+char	*ft_strcat(char *s1, const char *s2)
 {
-	int		i;
-	int		j;
+	int i;
+	int j;
 
+	i = 0;
 	j = 0;
-	while (tetris[j])
+	while (s1[i] != '\0')
+		i++;
+	while (s2[j] != '\0')
 	{
-		i = 0;
-		while (tetris[j][i])
-		{
-			ft_putchar(tetris[j][i]);
-			i++;
-		}
-		ft_putchar('\n');
+		s1[i] = s2[j];
+		i++;
 		j++;
 	}
+	s1[i] = '\0';
+	return (s1);
 }
